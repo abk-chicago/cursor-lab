@@ -20,4 +20,12 @@ public class MainActivity extends AppCompatActivity {
         db.createPlanet(7, "saturn", 6, "2 moons capable of organic life");
         db.createPlanet(8, "neptune", 8, "is a big, badass, methane, mofo");
     }
+
+
+
+
+
+
+
+
 }

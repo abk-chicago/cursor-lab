@@ -42,8 +42,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert("planets", null, planet);
     }
 
-//    public Planet getPlanetById(int id) {
-//
-//        return new Planet();
-//    }
+    public Planet getPlanetById(int id) {
+
+        return new Planet();
+    }
 }
