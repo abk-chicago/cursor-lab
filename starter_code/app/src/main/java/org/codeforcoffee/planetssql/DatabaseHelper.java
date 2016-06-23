@@ -57,7 +57,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         c.moveToFirst();
 
         while (!c.isAfterLast()) {
-            planets.add(c.getString(0) + " - " + c.getString(1) + " - " + c.getString(2));
+            planets.add("# " + c.getString(0) + "- planet name: " + c.getString(1) + "; planet position in the solar system: " + c.getString(2) + "; fun fact: " + c.getString(3));
             c.moveToNext();
         }
         c.close();
