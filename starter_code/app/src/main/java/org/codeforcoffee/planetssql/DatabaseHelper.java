@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 /**
  * Created by codeforcoffee on 6/22/16.
@@ -46,6 +50,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
+    //method modeled after "Books" begin:
+
+    public Planet showPlanetsAll() {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("planets", null, null, null, null, null, null);
+
+        ArrayList<String> planets = new ArrayList<>();
+
+        c.moveToFirst();
+
+        while (!c.isAfterLast()) {
+            planets.add(c.getString(0) + " - " + c.getString(1) + " - " + c.getString(2));
+            c.moveToNext();
+        }
+        c.close();
+        return planets;
+    }
+
+    //method end
+
+
 
     public Planet getPlanetById(int id) {
 
@@ -56,9 +83,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] SelectionArgs = new String[] {Integer.toString(id)};
 
 
-        Cursor cursor = db.query("planet", projection, selection, SelectionArgs, null, null, null, null);
-
-        cursor.moveToFirst();
+        Cursor cursor = db.query("planets", projection, selection, SelectionArgs, null, null, null, null);
 
         int planetId = Integer.parseInt(cursor.getString(cursor.getColumnIndex("id")));
         String planetName = cursor.getString(cursor.getColumnIndex("name"));

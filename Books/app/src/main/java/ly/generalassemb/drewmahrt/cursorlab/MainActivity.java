@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         String[] authors = new String[]{"J. K. Rowling","J. K. Rowling","Andy Weir"};
         int[] years = new int[]{1997,1998,2011};
         db.execSQL("CREATE TABLE IF NOT EXISTS tbl_books (title VARCHAR, author VARCHAR, year VARCHAR);");
+
         for (int i=0; i<titles.length;i++) {
             db.execSQL("INSERT INTO tbl_books Values ('" + titles[i] + "', '"+ authors[i] + "', '" + years[i] +"');");
         }

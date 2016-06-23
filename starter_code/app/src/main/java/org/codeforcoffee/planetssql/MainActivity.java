@@ -5,7 +5,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         DatabaseHelper db = new DatabaseHelper(this);
+
         db.createPlanet(1, "Mercury", 1, "pure metal core");
         db.createPlanet(2, "Venus", 2, "very strong electrical field");
         db.createPlanet(3, "Mars", 4, "1 ice cap is water, 1 ice cap is co2");
@@ -32,14 +37,13 @@ public class MainActivity extends AppCompatActivity {
         Planet firstPlanet = db.getPlanetById(1);
 
         mTextViewPlanet.setText(firstPlanet.getmName());
-        String l = "nothing";
 
-    }
 
-    View.OnClickListener click = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
 
-        }
+        ListView listView = (ListView) findViewById(R.id.listView);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,planets);
+        listView.setAdapter(arrayAdapter);
+
     };
+
 }
