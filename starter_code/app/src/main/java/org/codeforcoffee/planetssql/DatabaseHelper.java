@@ -53,19 +53,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String[] projection = new String[] { "id" , "name", "position", "fact"};
         String selection = " id = ?";
-        String[] SelesctionArgs = new String[] {Integer.toString(id)};
+        String[] SelectionArgs = new String[] {Integer.toString(id)};
 
 
-
-        Cursor cursor = db.query("planet", // a. table
-                projection, // b. column names
-                selection, // c. selections
-                SelesctionArgs, // d. selections args
-                null, // e. group by
-                null, // f. having
-                null, // g. order by
-                null); // h. limit
-
+        Cursor cursor = db.query("planet", projection, selection, SelectionArgs, null, null, null, null);
 
         cursor.moveToFirst();
 
@@ -77,7 +68,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Planet planetList = new Planet(planetId, planetName, planetPosition, planetFact);
         return planetList;
 
-
-        return new Planet();
     }
+
+
+    public void getPlanet() {
+
+    }
+
+    public void removePlanet() {
+
+    }
+
+
 }

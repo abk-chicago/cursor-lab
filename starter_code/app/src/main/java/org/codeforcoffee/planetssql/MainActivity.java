@@ -5,8 +5,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    TextView mTextViewPlanet;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +26,15 @@ public class MainActivity extends AppCompatActivity {
         db.createPlanet(6, "earth", 3, "our only fucking shot");
         db.createPlanet(7, "saturn", 6, "2 moons capable of organic life");
         db.createPlanet(8, "neptune", 8, "is a big, badass, methane, mofo");
+
+        mTextViewPlanet = (TextView) findViewById(R.id.textView);
+
+        Planet firstPlanet = db.getPlanetById(1);
+
+        mTextViewPlanet.setText(firstPlanet.getmName());
+        String l = "nothing";
+
     }
-
-
-
 
     View.OnClickListener click = new View.OnClickListener() {
         @Override
