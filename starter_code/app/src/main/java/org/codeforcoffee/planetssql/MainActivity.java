@@ -1,5 +1,7 @@
 package org.codeforcoffee.planetssql;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -21,6 +23,16 @@ public class MainActivity extends AppCompatActivity {
         db.createPlanet(8, "neptune", 8, "is a big, badass, methane, mofo");
     }
 
+    SQLiteDatabase db = this.getReadableDatabase();
+    Cursor cursor = db.query(planet, // a. table
+            name, // b. column names
+            null, // c. selections
+            null, // d. selections args
+            null, // e. group by
+            null, // f. having
+            null, // g. order by
+            null); // h. limit
+    return cursor;
 
 
 

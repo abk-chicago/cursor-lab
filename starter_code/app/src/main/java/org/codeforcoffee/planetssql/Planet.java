@@ -8,6 +8,7 @@ public class Planet {
     public int mId;
     public String mName;
     public int mPosition;
+    public String mFact;
 
 
     public Planet(int id, String name, int position, String fact) {
@@ -17,8 +18,6 @@ public class Planet {
         this.mPosition = position;
         this.mFact = fact;
     }
-
-    public String mFact;
 
     public int getmId() {
         return mId;
