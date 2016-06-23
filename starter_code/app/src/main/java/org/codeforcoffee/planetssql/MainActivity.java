@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView mTextViewPlanet;
+    ListView mLvPlanet;
 
 
     @Override
@@ -32,17 +32,15 @@ public class MainActivity extends AppCompatActivity {
         db.createPlanet(7, "saturn", 6, "2 moons capable of organic life");
         db.createPlanet(8, "neptune", 8, "is a big, badass, methane, mofo");
 
-        mTextViewPlanet = (TextView) findViewById(R.id.textView);
-
-        Planet firstPlanet = db.getPlanetById(1);
-
-        mTextViewPlanet.setText(firstPlanet.getmName());
+      // Planet firstPlanet = db.getPlanetById(1);
 
 
 
+        ArrayList<String> planets = new ArrayList<>();
         ListView listView = (ListView) findViewById(R.id.listView);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,planets);
         listView.setAdapter(arrayAdapter);
+
 
     };
 

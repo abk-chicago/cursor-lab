@@ -48,18 +48,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert("planets", null, planet);
     }
 
-
-
-    //method modeled after "Books" begin:
-
-    public Planet showPlanetsAll() {
+    public ArrayList<String> showPlanetsAll() {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor c = db.query("planets", null, null, null, null, null, null);
-
         ArrayList<String> planets = new ArrayList<>();
-
         c.moveToFirst();
 
         while (!c.isAfterLast()) {
@@ -69,10 +63,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         c.close();
         return planets;
     }
-
-    //method end
-
-
 
     public Planet getPlanetById(int id) {
 
