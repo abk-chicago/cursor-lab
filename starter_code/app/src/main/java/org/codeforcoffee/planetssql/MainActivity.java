@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         DatabaseHelper db = new DatabaseHelper(this);
 
@@ -33,6 +37,48 @@ public class MainActivity extends AppCompatActivity {
         db.createPlanet(8, "Neptune", 8, "is a big, badass, methane, mofo");
 
         //Planet firstPlanet = db.getPlanetById(1);
+
+        /* below in comments is Spoorthi's code: a better way yo iterate thru the database info:
+
+                mshowPlanet = (TextView) findViewById(R.id.txt_showPlanet);
+        Planet planet = new Planet(0, null, 0, null);
+        planet = db.getPlanetById(2);
+
+        int id = planet.getId();
+        String name = planet.getName();
+
+        mshowPlanet.setText(name);
+
+
+        ListView lst_planets = (ListView) findViewById(R.id.lst_showPlanets);
+        ArrayList<Planet> mlistplanets = new ArrayList<>();
+        mlistplanets = db.showPlanets();
+
+        ArrayAdapter<Planet> mArrayAdapter = new ArrayAdapter<Planet>(getApplicationContext(), R.layout.list_item, mlistplanets);
+
+        if (lst_planets != null) {
+            lst_planets.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    Toast.makeText(getApplicationContext(), "hello", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+
+        lst_planets.setAdapter(mArrayAdapter);
+
+    }
+         */
+
+
+
+
+
+
+
+
 
 
 

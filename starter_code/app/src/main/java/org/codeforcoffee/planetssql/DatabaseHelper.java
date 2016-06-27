@@ -64,6 +64,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return planets;
     }
 
+
+
+    /* in comments below Spoorthis code - (a better/different way)
+
+    public ArrayList<Planet> showPlanets(){
+
+        ArrayList<Planet> allPlanets = new ArrayList<>();
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        //select * from planets;
+        Cursor cursor = db.query("planets",null,null,null,null,null,null,null);
+
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()){
+            allPlanets.add(new Planet(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getString(3)));
+            cursor.moveToNext();
+        }
+        return allPlanets;
+
+    }
+        */
+
+
     public Planet getPlanetById(int id) {
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -84,7 +109,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return planetList;
 
     }
-
 
     public void getPlanet() {
 
